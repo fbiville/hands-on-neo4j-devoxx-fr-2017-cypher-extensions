@@ -58,16 +58,45 @@
   </dependencies>
 
   <build>
+    <defaultGoal>clean package</defaultGoal>
+    <finalName>devoxxfr-extensions</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.0.0</version>
         <executions>
           <execution>
+            <configuration>
+              <artifactSet>
+                <excludes>
+                  <exclude>org.neo4j:procedure-compiler</exclude>
+                </excludes>
+              </artifactSet>
+            </configuration>
             <phase>package</phase>
             <goals>
               <goal>shade</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.4.1</version>
+        <executions>
+          <execution>
+            <id>enforce-jdk-version</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <message>Please make sure to use a JDK 8!</message>
+              <rules>
+                <requireJavaVersion>
+                  <version>${maven.compiler.source}</version>
+                </requireJavaVersion>
+              </rules>
+            </configuration>
           </execution>
         </executions>
       </plugin>
