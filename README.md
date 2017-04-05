@@ -2,7 +2,7 @@
 
 ## Goal
 
-You need to complete two classes:
+You need to complete two classes in `src/main/java`:
 
  - `devoxxfr2017.UserDefinedFunction`: this class defines a user-defined Cypher function, callable as any function. This will compute the average rating for a given movie title.
  - `devoxxfr2017.UserDefinedProcedure`: this class defines a user-defined Cypher procedure, callable via `CALL my.procedure YIELD property RETURN...`. This will recommend movies for a user based on what another user has rated.
