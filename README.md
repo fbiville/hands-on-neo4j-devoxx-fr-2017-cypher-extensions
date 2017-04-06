@@ -17,6 +17,12 @@ As simple as:
  $> mvn
 ```
 
+### "Offline"
+
+```
+ $> mvn -Dmaven.repo.local=dependencies clean package
+```
+
 ## Deploy
 
 Once the project is built, copy `target/devoxxfr-extensions.jar` to the `plugins` directory of your Neo4j instance (if you installed Neo4j with an installer, the `plugins` folder lives in your custom data directory).
